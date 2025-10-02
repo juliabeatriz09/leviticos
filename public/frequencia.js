@@ -6,7 +6,7 @@ async function cadastrarfreq(event) {
         turma : document.getElementById('student').value,
         ausencias: document.getElementById('ausencias'),
         data_aula: document.getElementById('date').value,
-        justificativa: document.getElementById('justified').value,
+        justificativa: document.getElementById('justificada').value,
         cgm: document.getElementById('student').value,
         materia: document.getElementById('subject').value,
        
@@ -42,7 +42,7 @@ async function listarfrequencia() {
         const ausencias = document.getElementById('ausencias').value.trim();
         const data_aula = document.getElementById('date').value.trim ();
         const cgm = document.getElementById('student').value.trim ();
-        const justificativa = document.getElementById('justified').value.trim();
+        const justificativa = document.getElementById('justificada').value.trim();
         const materia = document.getElementById('subject').value.trim(); 
 
     let url = '/frequencia';  // URL padrão para todos os funcionario
@@ -89,7 +89,7 @@ async function atualizarfrequencia() {
     const ausencias = document.getElementById('ausencias').value.trim();
     const data_aula = document.getElementById('date').value.trim ();
     const cgm = document.getElementById('student').value.trim ();
-    const justificativa = document.getElementById('justified').value.trim();
+    const justificativa = document.getElementById('justificada').value.trim();
     const materia = document.getElementById('subject').value.trim(); 
     const turma = document.getElementById('student').value.trim();
 
@@ -101,7 +101,6 @@ async function atualizarfrequencia() {
         cgm,
         ausencias,
         materia
-        
           
     };
 

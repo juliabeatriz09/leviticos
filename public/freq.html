@@ -106,8 +106,8 @@
         </div>
 
         <div class="tabs">
-            <button class="tab active">Registrar Falta</button>
-            <button class="tab">Histórico de Faltas</button>
+            <button class="tab active" >Registrar Falta</button>
+            <button class="tab" onclick=" listarfrequencia()">Histórico de Faltas</button>
             <button class="tab">Relatórios</button>
         </div>
 
@@ -138,12 +138,15 @@
                 <div class="form-group">
                     <label for="justificada">Justificada</label>
                     <select id="justificada">
-                        <option value="nao">Não</option>
-                        <option value="sim">Sim</option>
+                        <option value="nao">não foi justificada</option>
+                        <option value="sim">consulta medica</option>
+                        <option value="sim">falecimento de um familiar</option>
+                        <option value="sim">apresentou mal-estar fisico</option>
                     </select>
                 </div>
 
-                <button class="submit-btn">Registrar Falta</button>
+                <button class="submit-btn" onclick="cadastrarfreq(event)">Registrar Falta</button>
+                <button class="submit-btn" onclick="atualizarfrequencia()">Editar</button>
             </div>
         </div>
     </div>
