@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Consulta - Estudantes</title>
+    <link rel="stylesheet" href="consulta.css">
+    <script src="cadastro.js"></script>
+    </head>
+
+<body>
+    <!-- Cabeçalho com navegação -->
+    <header class="header">
+        <!-- Container do logo -->
+        <div class="logo-container">
+            <div class="logo">
+                <!-- Placeholder para o logo institucional -->
+                <img src="imagens/logocmcc.png" alt="Logo Institucional" >
+            </div>
+        </div>
+
+        <!-- Navegação principal -->
+        <nav class="nav-container" id="navContainer">
+            <!-- Item de navegação: Consulta -->
+            <a href="consulta.html" class="nav-item">
+                <div class="nav-icon-container">
+                    <!-- Ícone de lupa SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </div>
+                <div class="nav-text">CONSULTA</div>
+            </a>
+            <!-- Item de navegação: Cadastro -->
+            <a href="index.html" class="nav-item">
+                <div class="nav-icon-container">
+                    <!-- Ícone de pessoa SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </div>
+                <div class="nav-text">CADASTRO</div>
+            </a>
+            <!-- Item de navegação: F/O (Fator/Operação) -->
+            <a href="teste_fo.html" class="nav-item">
+                <div class="nav-icon-container">
+                    <!-- Ícones sobrepostos para criar o símbolo -/+ -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        style="position: absolute; margin-top: 8px;">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                </div>
+                <div class="nav-text">F/O</div>
+            </a>
+            <!-- Item de navegação: Frequência -->
+            <a href="freq.html" class="nav-item">
+                <div class="nav-icon-container">
+                    <!-- Ícone de documento SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                </div>
+                <div class="nav-text">FREQUÊNCIA</div>
+            </a>
+        </nav>
+
+        <!-- Botão de menu para dispositivos móveis -->
+        <button class="menu-toggle" id="menuToggle">
+            <!-- Ícone de hambúrguer SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main class="content">
+        <!-- Container da barra de pesquisa -->
+        <div class="search-container">
+            <!-- Ícone de lupa dentro da barra de pesquisa -->
+            <span class="search-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </span>
+            <!-- Campo de entrada de texto para pesquisa -->
+            <input type="text" class="search-box" placeholder="Digite o nome ou CGM do estudante..." id="aluno-matricula">
+            <!-- Botão para limpar o campo de pesquisa -->
+            <button class="clear-search" id="clearSearch">✕</button>
+        </div>
+         
+        <!-- Container dos filtros dropdown -->
+        <!-- <div class="filters-container">
+            <div class="filter-dropdown">
+                <select class="filter-select" id="encaminhamentoFilter">
+                    <option value="">Todos os Encaminhamentos</option>
+                    <option value="neurologia">Monitoria</option>
+                    <option value="fonoaudiologia">Pedagogia</option>
+                    <option value="psicologia">Diretoria</option>
+                    <option value="assistente_social">Responsaveis</option>
+                    <option value="oftalmologia">Patrulha Escolar</option>
+                    <option value="nenhum">Nenhum</option>
+                </select>
+            </div>
+            
+            <div class="filter-dropdown">
+                <select class="filter-select" id="frequenciaFilter">
+                    <option value="">Todas as Frequências</option>
+                    <option value="excelente">Excelente (95-100%)</option>
+                    <option value="boa">Boa (85-94%)</option>
+                    <option value="regular">Regular (75-84%)</option>
+                    <option value="baixa">Baixa (60-74%)</option>
+                    <option value="critica">Em risco ( 60%)</option>
+                </select>
+            </div>
+
+            <div class="filter-dropdown">
+                <select class="filter-select" id="Ocorrencia">
+                    <option value="">Todas as Ocorrencia</option>
+                    <option value="boa"> Leve</option>
+                    <option value="regular">Medio</option>
+                    <option value="baixa">Grave</option>
+                    <option value="critica">Gravissimo</option>
+                </select>
+            </div>
+
+            <div class="filter-dropdown">
+                <select class="filter-select" id="frequenciaFilter">
+                    <option value="">Todos os F.O</option>
+                    <option value="excelente">Excelente (10,0) </option>
+                    <option value="boa">Bom (10,0- 6,0)</option>
+                    <option value="regular">Regular (-6,0 a 1,0)</option>
+                    <option value="baixa">Baixo (-1,0 a -4,0)</option>
+                    <option value="baixa">MuitoBaixo (>-4,0)</option>
+                </select>
+            </div>
+            
+            
+            <button class="clear-filters" id="clearFilters">
+                Limpar Filtros
+            </button>
+        </div> -->
+
+        <!-- Informações do Estudante (exemplo estático) -->
+        <div class="student-info" id="studentInfo">
+             <button type="button" onclick="listarAlunos()" class="alinhaBtns">Listar aluno</button>
+    
+      <table>
+        <thead>
+            <tr>
+            
+                <th>Nome</th>
+                <th>CGM</th>
+                <th>CPF</th>
+                <th>Email</th>
+                <th>Turma</th>
+                <th>Telefone Responsavel</th>
+            
+            </tr>
+        </thead>
+        <tbody id="tabela-aluno">
+            <!-- Linhas serão preenchidas pelo JavaScript -->
+        </tbody>
+    </table>
+    
+        </div>
+  
+    </main>
+
+    <!-- Rodapé da página -->
+    <footer class="footer">
+        <!-- Espaço para conteúdo do rodapé -->
+    </footer>
+<!--
+    <script>
+        // Funcionalidade básica para demonstração dos filtros
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const clearSearch = document.getElementById('clearSearch');
+            const encaminhamentoFilter = document.getElementById('encaminhamentoFilter');
+            const OcorrenciaFilter = document.getElementById('ocorrenciaFilter')
+            const frequenciaFilter = document.getElementById('frequenciaFilter');
+            const clearFilters = document.getElementById('clearFilters');
+            const studentInfo = document.getElementById('studentInfo');
+            const noSelection = document.getElementById('noSelection');
+            const menuToggle = document.getElementById('menuToggle');
+            const navContainer = document.getElementById('navContainer');
+
+            // Função para limpar a pesquisa
+            clearSearch.addEventListener('click', function() {
+                searchInput.value = '';
+                searchInput.focus();
+            });
+
+            // Função para limpar todos os filtros
+            clearFilters.addEventListener('click', function() {
+                searchInput.value = '';
+                encaminhamentoFilter.value = '';
+                frequenciaFilter.value = '';
+                
+                // Reset visual state
+                studentInfo.style.display = 'block';
+                noSelection.style.display = 'none';
+            });
+
+            // Menu toggle para mobile
+            menuToggle.addEventListener('click', function() {
+                navContainer.classList.toggle('active');
+            });
+
+            // Demonstração básica de filtros
+            function applyFilters() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const encaminhamento = encaminhamentoFilter.value;
+                const Ocorrencia = OcorrenciaFilter.value;
+                const frequencia = frequenciaFilter.value;
+
+                // Esta é uma demonstração visual básica
+                // Em uma implementação real, você faria uma consulta ao servidor/banco de dados
+                
+                if (searchTerm || encaminhamento || frequencia) {
+                    studentInfo.style.display = 'block';
+                    noSelection.style.display = 'none';
+                    
+                    // Atualizar informações baseado nos filtros (exemplo)
+                    if (encaminhamento === 'fonoaudiologia') {
+                        document.querySelector('.encaminhamento-value').textContent = 'Fonoaudiologia';
+                    } else if (encaminhamento === 'nenhum') {
+                        document.querySelector('.encaminhamento-value').textContent = 'Nenhum';
+                        document.querySelector('.encaminhamento-value').className = 'info-value';
+                    }
+                    
+                    if (frequencia === 'baixa') {
+                        document.querySelector('.frequency-value').textContent = '68%';
+                        document.querySelector('.frequency-value').className = 'frequency-value frequency-warning';
+                    } else if (frequencia === 'critica') {
+                        document.querySelector('.frequency-value').textContent = '45%';
+                        document.querySelector('.frequency-value').className = 'frequency-value frequency-danger';
+                    }
+                }
+            }
+
+            // Event listeners para os filtros
+            searchInput.addEventListener('input', applyFilters);
+            encaminhamentoFilter.addEventListener('change', applyFilters);
+            frequenciaFilter.addEventListener('change', applyFilters);
+        });
+    </script>
+-->
+</body>
+</html>

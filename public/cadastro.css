@@ -1,0 +1,956 @@
+
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: Arial, sans-serif;
+ }
+
+ /* Estilo do corpo da página */
+ body {
+     background-color: #f0f1f5;
+     /* Fundo cinza claro */
+ }
+
+ /* Cabeçalho com gradiente azul */
+ .header {
+     background: linear-gradient(to right, #002346, #003c73, #0055aa);
+     /* Gradiente da esquerda para direita */
+     color: white;
+     display: flex;
+     /* Layout flexível para alinhar itens */
+     justify-content: space-between;
+     /* Espaço entre os elementos */
+     align-items: center;
+     /* Alinhamento vertical */
+     padding: 10px 20px;
+     position: relative;
+     /* Para posicionamento absoluto do menu mobile */
+     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+     /* Sombra suave */
+ }
+
+ /* Container do logo */
+ .logo-container {
+     display: flex;
+     align-items: center;
+ }
+
+ /* Estilização do logo circular */
+ .logo {
+     width: 70px;
+     height: 70px;
+     border-radius: 50%;
+     /* Forma circular */
+     background-color: white;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+
+     border: 2px solid #e0e0e0;
+     /* Borda cinza claro */
+ }
+
+ .logo img {
+     width: 170px;
+     height: 80px;
+ }
+
+ /* Container da navegação */
+ .nav-container {
+     display: flex;
+     flex-grow: 1;
+     /* Ocupa o espaço disponível */
+     justify-content: center;
+     /* Centraliza os itens */
+     gap: 15px;
+     /* Espaço entre os itens */
+     margin-left: 20px;
+ }
+
+ /* Estilo dos itens de navegação */
+ .nav-item {
+     display: flex;
+     flex-direction: column;
+     /* Ícone acima do texto */
+     align-items: center;
+     justify-content: center;
+     color: white;
+     text-decoration: none;
+     text-align: center;
+     min-width: 90px;
+ }
+
+ /* Caixas dos ícones de navegação */
+ .nav-icon-container {
+     background-color: rgba(255, 255, 255, 0.1);
+     /* Fundo branco transparente */
+     border-radius: 10px;
+     /* Cantos arredondados */
+     width: 60px;
+     height: 60px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     margin-bottom: 5px;
+ }
+
+ /* Texto dos itens de navegação */
+ .nav-text {
+     font-size: 12px;
+     font-weight: bold;
+ }
+
+ /* Botão do menu mobile (hamburger) - escondido por padrão */
+ .menu-toggle {
+     display: none;
+     /* Inicialmente oculto, aparece apenas em telas pequenas */
+     background: none;
+     border: none;
+     color: white;
+     font-size: 24px;
+     cursor: pointer;
+ }
+
+ /* Área de conteúdo principal */
+ .content {
+     min-height: calc(100vh - 150px);
+     /* Altura mínima para ocupar o espaço disponível */
+     padding: 20px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: flex-start;
+     padding-top: 80px;
+     /* Espaço superior */
+ }
+
+
+ /* Media query para tablets */
+ @media (max-width: 768px) {
+     .header {
+         padding: 10px;
+         /* Reduz o padding */
+     }
+
+     .nav-container {
+         gap: 10px;
+         /* Reduz o espaço entre itens */
+     }
+
+     /* Reduz o tamanho dos ícones */
+     .nav-icon-container {
+         width: 50px;
+         height: 50px;
+     }
+
+     /* Reduz o tamanho da fonte */
+     .nav-text {
+         font-size: 10px;
+     }
+
+     /* Ajusta o padding da barra de pesquisa */
+     .search-box {
+         padding: 10px 40px 10px 40px;
+     }
+ }
+
+ /* Media query para dispositivos móveis */
+ @media (max-width: 576px) {
+
+     /* Reduz o tamanho do logo */
+     .logo {
+         width: 50px;
+         height: 50px;
+     }
+
+     /* Transforma o menu em coluna vertical */
+     .nav-container {
+         display: none;
+         /* Esconde inicialmente */
+         width: 100%;
+         flex-direction: column;
+         position: absolute;
+         top: 80px;
+         left: 0;
+         background: linear-gradient(to right, #002346, #003c73);
+         z-index: 100;
+         /* Acima de outros elementos */
+         padding: 10px;
+     }
+
+     /* Classe para mostrar o menu quando ativado */
+     .nav-container.active {
+         display: flex;
+     }
+
+     /* Mostra o botão de menu */
+     .menu-toggle {
+         display: block;
+     }
+
+     /* Ajusta layout dos itens de navegação para horizontal em móveis */
+     .nav-item {
+         width: 100%;
+         flex-direction: row;
+         justify-content: flex-start;
+         padding: 12px;
+         gap: 15px;
+     }
+
+     /* Ajusta os containers dos ícones */
+     .nav-icon-container {
+         margin-bottom: 0;
+         width: 40px;
+         height: 40px;
+     }
+
+     /* Reduz o espaço no topo do conteúdo */
+     .content {
+         padding-top: 40px;
+     }
+ }
+
+ /* Container principal */
+ .container {
+     max-width: 1000px;
+     margin: 20px auto;
+     padding: 30px;
+     background-color: #fff;
+     border-radius: 10px;
+     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+ }
+
+ /* Cabeçalho da página */
+ .hea {
+     text-align: center;
+     margin-bottom: 30px;
+     padding-bottom: 20px;
+     border-bottom: 2px solid #e1e4e8;
+     background: linear-gradient(to right, #002346, #003c73, #0055aa);
+     padding: 25px;
+
+ }
+
+ .hea h1 {
+     color: #ffffff;
+     font-size: 28px;
+     margin-bottom: 10px;
+ }
+
+ .hea p {
+     color: #f6f9fa;
+     font-size: 16px;
+ }
+
+ /* Estilo das seções */
+ .section {
+     margin-bottom: 30px;
+     padding: 20px;
+     background-color: #f8f9fa;
+     border-radius: 8px;
+     border-left: 4px solid #3498db;
+ }
+
+ .section h2 {
+     color: #2c3e50;
+     margin-bottom: 20px;
+     font-size: 20px;
+     display: flex;
+     align-items: center;
+ }
+
+ .section h2::before {
+     content: '';
+     display: inline-block;
+     width: 24px;
+     height: 24px;
+     background-color: #3498db;
+     margin-right: 10px;
+     border-radius: 50%;
+ }
+
+ /* Grade para os campos do formulário */
+ .form-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+     gap: 20px;
+ }
+
+ /* Grupos de formulário */
+ .form-group {
+     margin-bottom: 15px;
+ }
+
+ .form-group label {
+     display: block;
+     margin-bottom: 8px;
+     font-weight: 600;
+     color: #34495e;
+ }
+
+ .form-group input,
+ .form-group select {
+     width: 100%;
+     padding: 12px;
+     border: 1px solid #ddd;
+     border-radius: 6px;
+     font-size: 16px;
+     transition: border-color 0.3s, box-shadow 0.3s;
+ }
+
+ .form-group input:focus,
+ .form-group select:focus {
+     border-color: #3498db;
+     box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+     outline: none;
+ }
+
+ /* Estilos específicos para os responsáveis */
+ .responsavel-container {
+     margin-top: 20px;
+     border-top: 1px dashed #ccc;
+     padding-top: 20px;
+ }
+
+ /* Botão para adicionar responsável - agora é um label estilizado como botão */
+ .btn-add-responsavel {
+     display: inline-flex;
+     align-items: center;
+     background-color: #27ae60;
+     color: white;
+     border: none;
+     padding: 10px 15px;
+     font-size: 16px;
+     border-radius: 6px;
+     cursor: pointer;
+     margin-top: 15px;
+     margin-bottom: 20px;
+     transition: background-color 0.3s;
+ }
+
+ .btn-add-responsavel:hover {
+     background-color: #2ecc71;
+ }
+
+ .btn-add-responsavel::before {
+     content: '+';
+     font-size: 20px;
+     margin-right: 8px;
+ }
+
+ /* Mostrar segundo botão de adicionar quando o primeiro responsável for adicionado */
+ #add-responsavel-control:checked~label[for="add-responsavel-control-2"] {
+     display: inline-flex !important;
+ }
+
+ /* Esconder o primeiro botão quando clicado */
+ #add-responsavel-control:checked~label[for="add-responsavel-control"] {
+     display: none;
+ }
+
+ /* Esconder o segundo botão quando clicado */
+ #add-responsavel-control-2:checked~label[for="add-responsavel-control-2"] {
+     display: none !important;
+ }
+
+ /* Grupo de botões */
+ .btn-group {
+     display: flex;
+     justify-content: space-between;
+     margin-top: 30px;
+     flex-wrap: wrap;
+     gap: 15px;
+ }
+
+ /* Estilos dos botões */
+ .btn {
+     padding: 12px 25px;
+     font-size: 16px;
+     border: none;
+     border-radius: 6px;
+     cursor: pointer;
+     font-weight: 600;
+     transition: all 0.3s ease;
+ }
+
+ .btn-voltar {
+     background-color: #95a5a6;
+     color: white;
+ }
+
+ .btn-voltar:hover {
+     background-color: #7f8c8d;
+ }
+
+ .btn-cancelar {
+     background-color: #e74c3c;
+     color: white;
+ }
+
+ .btn-cancelar:hover {
+     background-color: #c0392b;
+ }
+
+ .btn-cadastrar {
+     background-color: #3498db;
+     color: white;
+     padding: 12px 35px;
+ }
+
+ .btn-cadastrar:hover {
+     background-color: #2980b9;
+ }
+
+ /* Responsividade para dispositivos móveis */
+ @media (max-width: 768px) {
+     .container {
+         padding: 15px;
+         margin: 10px;
+     }
+
+     .form-grid {
+         grid-template-columns: 1fr;
+     }
+
+     .btn-group {
+         flex-direction: column;
+     }
+
+     .btn {
+         width: 100%;
+         margin-bottom: 10px;
+     }
+ }
+
+ /* Animações para tornar a página mais dinâmica */
+ @keyframes fadeIn {
+     from {
+         opacity: 0;
+         transform: translateY(10px);
+     }
+
+     to {
+         opacity: 1;
+         transform: translateY(0);
+     }
+ }
+
+ .section {
+     animation: fadeIn 0.5s ease-out forwards;
+ }
+
+ .section:nth-child(2) {
+     animation-delay: 0.2s;
+ }
+
+ .section:nth-child(3) {
+     animation-delay: 0.4s;
+ }
+
+ /* Efeito hover nos campos */
+ .form-group input:hover,
+ .form-group select:hover {
+     border-color: #bdc3c7;
+ }
+
+ /* Indicador de campo obrigatório */
+ .required::after {
+     content: "*";
+     color: #e74c3c;
+     margin-left: 4px;
+ }
+
+ /* Estilo para os checkbox que controlarão a visibilidade */
+ .responsavel-control {
+     display: none;
+ }
+
+ /* Estilo para os responsáveis adicionais (inicialmente ocultos) */
+ .responsavel-adicional {
+     display: none;
+     margin-top: 20px;
+     padding-top: 20px;
+     border-top: 1px dashed #ccc;
+ }
+
+ /* Quando o checkbox principal estiver marcado, mostra os responsáveis correspondentes */
+ #add-responsavel-control:checked~#responsavel-2 {
+     display: block;
+ }
+
+ #add-responsavel-control:checked~#add-responsavel-control-2:checked~#responsavel-3 {
+     display: block;
+ }
+
+ /* O botão adicionar só fica visível com base nas condições */
+ .btn-add-responsavel {
+     display: inline-flex;
+ }
+
+ /* Esconde o botão adicionar quando o limite for atingido */
+ #add-responsavel-control:checked~#add-responsavel-control-2:checked~.btn-add-responsavel {
+     display: none;
+ }
+
+ /* Botão para remover responsável */
+ .btn-remove-responsavel {
+     display: inline-flex;
+     align-items: center;
+     background-color: #e74c3c;
+     color: white;
+     border: none;
+     padding: 8px 12px;
+     font-size: 14px;
+     border-radius: 6px;
+     cursor: pointer;
+     margin-left: 10px;
+     transition: background-color 0.3s;
+ }
+
+ .btn-remove-responsavel:hover {
+     background-color: #c0392b;
+ }
+
+ .btn-remove-responsavel::before {
+     content: '×';
+     font-size: 18px;
+     margin-right: 6px;
+ }
+
+ /* Controle de remoção para responsáveis */
+ .remove-responsavel-container {
+     display: flex;
+     justify-content: flex-end;
+     margin-bottom: 15px;
+ }
+
+ /* Ocultando os botões de remover até que o checkbox adequado esteja marcado */
+ .remove-responsavel-container {
+     display: none;
+ }
+
+ #add-responsavel-control:checked~#responsavel-2 .remove-responsavel-container {
+     display: flex;
+ }
+
+ #add-responsavel-control:checked~#add-responsavel-control-2:checked~#responsavel-3 .remove-responsavel-container {
+     display: flex;
+ }
+
+ /* Quando o checkbox de remoção estiver marcado, esconde o responsável */
+ #remove-responsavel-2:checked~#responsavel-2 {
+     display: none;
+ }
+
+ #remove-responsavel-3:checked~#responsavel-3 {
+     display: none;
+ }
+
+ /* Reexibir o botão de adicionar quando um responsável for removido */
+ #remove-responsavel-2:checked~.btn-add-responsavel,
+ #remove-responsavel-3:checked~.btn-add-responsavel {
+     display: inline-flex;
+ }
+
+ /* Rodapé com mesmo gradiente do cabeçalho */
+ .footer {
+     background: linear-gradient(to right, #002346, #003c73, #0055aa);
+     height: 40px;
+     margin-top: auto;
+     /* Empurra para o final da página */
+ }
+
+ 
+ /* Variáveis CSS */
+ :root {
+     --primary: #3498db;
+     --secondary: #3a0ca3;
+     --success: #2ecc71;
+     --warning: #ff9f1c;
+     --danger: #e63946;
+     --light: #f8f9fa;
+     --dark: #343a40;
+     --border: #dee2e6;
+     --shadow: rgba(0, 0, 0, 0.15);
+ }
+
+ /* Reset CSS */
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: Arial, sans-serif;
+ }
+
+ body {
+     background-color: #f0f1f5;
+     color: var(--dark);
+     line-height: 1.6;
+ }
+
+ /* Cabeçalho */
+ .hea {
+     background: linear-gradient(to right, #002346, #003c73, #0055aa);
+     color: white;
+     padding: 20px 0;
+     margin-bottom: 30px;
+     box-shadow: 0 2px 10px var(--shadow);
+     text-align: center;
+ }
+
+ .hea h1 {
+     font-size: 2.2rem;
+     margin-bottom: 10px;
+ }
+
+ .hea p {
+     font-size: 1.1rem;
+     opacity: 0.9;
+ }
+
+ /* Container principal */
+ .container {
+     max-width: 900px;
+     margin: 0 auto;
+     padding: 20px;
+     background-color: #fff;
+     border-radius: 10px;
+     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+     margin-top: 20px;
+     margin-bottom: 25px;
+ }
+
+ /* Sistema de abas */
+ .tabs {
+     position: relative;
+     margin-bottom: 30px;
+     border-radius: 6px;
+ }
+
+ .tab-control {
+     display: none;
+ }
+
+ .tab-labels {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     gap: 10px;
+     margin-bottom: 20px;
+     position: relative;
+     z-index: 2;
+ }
+
+ .tab-label {
+     padding: 15px 30px;
+     background-color: white;
+     border-radius: 8px;
+     border: 2px solid var(--border);
+     cursor: pointer;
+     font-weight: 600;
+     font-size: 1.1rem;
+     transition: all 0.3s ease;
+     box-shadow: 0 2px 5px var(--shadow);
+     user-select: none;
+     text-align: center;
+     white-space: nowrap;
+ }
+
+ .tab-label:hover {
+     background-color: #f0f4f8;
+     border-color: var(--primary);
+     transform: translateY(-2px);
+ }
+
+ .tab-content {
+     display: none;
+     background-color: white;
+     border-radius: 8px;
+     padding: 20px;
+     box-shadow: 0 2px 10px var(--shadow);
+     animation: fadeIn 0.5s ease;
+     border-left: 4px solid var(--primary);
+ }
+
+ /* Lógica de funcionamento das abas */
+ #tab1:checked ~ .tab-contents #content1,
+ #tab2:checked ~ .tab-contents #content2 {
+     display: block;
+ }
+
+ #tab1:checked ~ .tab-labels label[for="tab1"],
+ #tab2:checked ~ .tab-labels label[for="tab2"] {
+     background-color: var(--primary);
+     color: white;
+     border-color: var(--primary);
+     transform: translateY(-2px);
+ }
+
+ @keyframes fadeIn {
+     from {
+         opacity: 0;
+         transform: translateY(10px);
+     }
+     to {
+         opacity: 1;
+         transform: translateY(0);
+     }
+ }
+
+ /* Formulários */
+ .form-section {
+     margin-bottom: 30px;
+ }
+
+ .form-section h3 {
+     color: var(--primary);
+     margin-bottom: 20px;
+     padding-bottom: 10px;
+     border-bottom: 2px solid #e9ecef;
+     font-size: 1.3rem;
+ }
+
+ .form-group {
+     margin-bottom: 20px;
+ }
+
+ label {
+     display: block;
+     margin-bottom: 5px;
+     font-weight: bold;
+     color: var(--dark);
+ }
+
+ .required::after {
+     content: "*";
+     color: red;
+     margin-left: 3px;
+ }
+
+ input[type="text"],
+ input[type="email"],
+ input[type="tel"],
+ input[type="date"],
+ input[type="number"],
+ select {
+     width: 100%;
+     padding: 12px 15px;
+     border: 1px solid var(--border);
+     border-radius: 8px;
+     font-size: 1rem;
+     transition: border-color 0.3s;
+ }
+
+ input:focus,
+ select:focus {
+     outline: none;
+     border-color: var(--primary);
+     box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+ }
+
+ .form-row {
+     display: flex;
+     gap: 20px;
+ }
+
+ .form-row .form-group {
+     flex: 1;
+ }
+
+ /* Botões */
+ .btn-container {
+     display: flex;
+     gap: 15px;
+     justify-content: center;
+     align-items: center;
+     margin-top: 30px;
+     padding: 20px 0;
+     border-top: 1px solid var(--border);
+ }
+
+ .btn {
+     padding: 12px 24px;
+     border: none;
+     border-radius: 8px;
+     cursor: pointer;
+     font-size: 16px;
+     font-weight: 600;
+     transition: all 0.3s;
+     text-decoration: none;
+     display: inline-block;
+     text-align: center;
+     min-width: 120px;
+ }
+
+ .btn-submit {
+     background-color: var(--success);
+     color: white;
+ }
+
+ .btn-submit:hover {
+     background-color: #27ae60;
+     transform: translateY(-2px);
+     box-shadow: 0 4px 8px var(--shadow);
+ }
+
+ .btn-secondary {
+     background-color: #6c757d;
+     color: white;
+ }
+
+ .btn-secondary:hover {
+     background-color: #5a6268;
+     transform: translateY(-2px);
+     box-shadow: 0 4px 8px var(--shadow);
+ }
+
+ .btn-danger {
+     background-color: var(--danger);
+     color: white;
+ }
+
+ .btn-danger:hover {
+     background-color: #dc2626;
+     transform: translateY(-2px);
+     box-shadow: 0 4px 8px var(--shadow);
+ }
+
+ /* Seção de Responsáveis */
+ .responsavel-item {
+     background-color: #f8f9fa;
+     border: 1px solid var(--border);
+     border-radius: 8px;
+     padding: 20px;
+     margin-bottom: 15px;
+     position: relative;
+ }
+
+ .responsavel-hea {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin-bottom: 15px;
+ }
+
+ .responsavel-hea h4 {
+     color: var(--primary);
+     margin: 0;
+ }
+
+ .btn-remove-responsavel {
+     background-color: var(--danger);
+     color: white;
+     border: none;
+     padding: 8px 12px;
+     border-radius: 4px;
+     cursor: pointer;
+     font-size: 12px;
+     font-weight: 600;
+     transition: all 0.3s;
+ }
+
+ .btn-remove-responsavel:hover {
+     background-color: #dc2626;
+     transform: translateY(-1px);
+ }
+
+ .btn-add-responsavel {
+     background-color: var(--primary);
+     color: white;
+     border: none;
+     padding: 12px 20px;
+     border-radius: 8px;
+     cursor: pointer;
+     font-size: 14px;
+     font-weight: 600;
+     margin-bottom: 20px;
+     transition: all 0.3s;
+     display: flex;
+     align-items: center;
+     gap: 8px;
+ }
+
+ .btn-add-responsavel:hover {
+     background-color: var(--secondary);
+     transform: translateY(-2px);
+     box-shadow: 0 3px 6px var(--shadow);
+ }
+
+ .btn-add-responsavel::before {
+     content: "+";
+     font-size: 18px;
+     font-weight: bold;
+ }
+
+ /* Responsividade */
+ @media (max-width: 768px) {
+     .container {
+         margin: 10px;
+         padding: 20px;
+     }
+
+     .tab-labels {
+         flex-direction: row;
+         width: 100%;
+         gap: 8px;
+         justify-content: center;
+     }
+
+     .tab-label {
+         flex: 1;
+         max-width: none;
+         text-align: center;
+         padding: 12px 15px;
+         font-size: 1rem;
+     }
+
+     .form-row {
+         flex-direction: column;
+         gap: 0;
+     }
+
+     .hea h1 {
+         font-size: 1.8rem;
+     }
+
+     .hea p {
+         font-size: 1rem;
+     }
+
+     .btn-container {
+         flex-wrap: wrap;
+     }
+
+     .btn {
+         flex: 1;
+         min-width: 100px;
+     }
+ }
+
+ @media (max-width: 576px) {
+     .hea h1 {
+         font-size: 1.5rem;
+     }
+     
+     .tab-labels {
+         flex-direction: column;
+         gap: 8px;
+     }
+
+     .tab-label {
+         width: 100%;
+         padding: 12px 20px;
+     }
+     
+     .btn-container {
+         flex-direction: column;
+         align-items: center;
+         gap: 10px;
+     }
+
+     .btn {
+         width: 100%;
+         max-width: 250px;
+     }
+ }
