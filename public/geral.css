@@ -1,0 +1,242 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Estilo do corpo da página */
+        body {
+            background-color: #f0f1f5;
+            /* Fundo cinza claro */
+        }
+
+        /* Cabeçalho com gradiente azul */
+        .header {
+            background: linear-gradient(to right, #002346, #003c73, #0055aa);
+            /* Gradiente da esquerda para direita */
+            color: white;
+            display: flex;
+            /* Layout flexível para alinhar itens */
+            justify-content: space-between;
+            /* Espaço entre os elementos */
+            align-items: center;
+            /* Alinhamento vertical */
+            padding: 10px 20px;
+            position: relative;
+            /* Para posicionamento absoluto do menu mobile */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            /* Sombra suave */
+        }
+
+        /* Container do logo */
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Estilização do logo circular */
+        .logo {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            /* Forma circular */
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #e0e0e0;
+            /* Borda cinza claro */
+        }
+
+        .logo img {
+            width: 170px;
+            height: 80px;
+        }
+
+        /* Container da navegação */
+        .nav-container {
+            display: flex;
+            flex-grow: 1;
+            /* Ocupa o espaço disponível */
+            justify-content: center;
+            /* Centraliza os itens */
+            gap: 15px;
+            /* Espaço entre os itens */
+            margin-left: 20px;
+        }
+
+        /* Estilo dos itens de navegação */
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            /* Ícone acima do texto */
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            min-width: 90px;
+        }
+
+        /* Caixas dos ícones de navegação */
+        .nav-icon-container {
+            background-color: rgba(255, 255, 255, 0.1);
+            /* Fundo branco transparente */
+            border-radius: 10px;
+            /* Cantos arredondados */
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        /* Texto dos itens de navegação */
+        .nav-text {
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* Botão do menu mobile (hamburger) - escondido por padrão */
+        .menu-toggle {
+            display: none;
+            /* Inicialmente oculto, aparece apenas em telas pequenas */
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        /* Rodapé com mesmo gradiente do cabeçalho */
+        .footer {
+            background: linear-gradient(to right, #002346, #003c73, #0055aa);
+            height: 40px;
+            margin-top: auto;
+            /* Empurra para o final da página */
+        }     
+
+        /* Media query para tablets */
+        @media (max-width: 768px) {
+            .header {
+                padding: 10px;
+                /* Reduz o padding */
+            }
+
+            .nav-container {
+                gap: 10px;
+                /* Reduz o espaço entre itens */
+            }
+
+            /* Reduz o tamanho dos ícones */
+            .nav-icon-container {
+                width: 50px;
+                height: 50px;
+            }
+
+            /* Reduz o tamanho da fonte */
+            .nav-text {
+                font-size: 10px;
+            }
+
+            /* Ajusta o padding da barra de pesquisa */
+            .search-box {
+                padding: 10px 40px 10px 40px;
+            }
+
+            .filters-container {
+                gap: 15px;
+            }
+
+            .filter-dropdown {
+                min-width: 160px;
+            }
+        }
+            
+
+        /* Media query para dispositivos móveis */
+        @media (max-width: 576px) {
+
+            /* Reduz o tamanho do logo */
+            .logo {
+                width: 50px;
+                height: 50px;
+            }
+
+            /* Transforma o menu em coluna vertical */
+            .nav-container {
+                display: none;
+                /* Esconde inicialmente */
+                width: 100%;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                background: linear-gradient(to right, #002346, #003c73);
+                z-index: 100;
+                /* Acima de outros elementos */
+                padding: 10px;
+            }
+
+            /* Classe para mostrar o menu quando ativado */
+            .nav-container.active {
+                display: flex;
+            }
+
+            /* Mostra o botão de menu */
+            .menu-toggle {
+                display: block;
+            }
+
+            /* Ajusta layout dos itens de navegação para horizontal em móveis */
+            .nav-item {
+                width: 100%;
+                flex-direction: row;
+                justify-content: flex-start;
+                padding: 12px;
+                gap: 15px;
+            }
+
+            /* Ajusta os containers dos ícones */
+            .nav-icon-container {
+                margin-bottom: 0;
+                width: 40px;
+                height: 40px;
+            }
+
+            /* Reduz o espaço no topo do conteúdo */
+            .content {
+                padding-top: 40px;
+            }
+
+            .filters-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .filter-dropdown {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .clear-filters {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .info-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+
+            .info-value {
+                text-align: left;
+            }
+
+            .info-label {
+                min-width: auto;
+            }
+        }

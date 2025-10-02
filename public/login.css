@@ -1,0 +1,130 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #004080 0%, #001a33 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            display: flex;
+            width: 800px;
+            height: 500px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .logo-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            width: 250px;
+            height: 250px;  
+        }
+        .img{
+            width: 500px;
+            position: relative;
+            right: 125px;
+            bottom: 60px;
+        }
+        
+        .login-container {
+            flex: 1;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+        
+        .login-form {
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        .login-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f5f5f5;
+        }
+        
+        .form-group:last-of-type {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .form-group:last-of-type label {
+            margin-bottom: 0;
+            margin-right: 10px;
+        }
+        
+        .btn-login {
+            width: 100%;
+            padding: 10px;
+            background-color: #14396B;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-login:hover {
+            background-color: #0e2d54;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                width: 90%;
+                height: auto;
+            }
+            
+            .logo-container {
+                padding: 20px;
+            }
+            
+            .logo {
+                width: 150px;
+                height: 150px;
+            }
+        }
