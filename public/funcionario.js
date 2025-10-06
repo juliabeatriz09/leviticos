@@ -93,16 +93,17 @@ async function atualizarfuncionario() {
     const estado = document.getElementById('func-estado').value;
     const email = document.getElementById('func-email').value;
     const telefone = document.getElementById('func-telefone').value;
-
-    if (!cpf) {
-        alert('Informe o CPF do funcionário para atualizar.');
+    
+  
+    if (!nome) {
+        alert('Informe o nome do funcionário para atualizar.');
         return;
     }
 
     const funcionarioAtualizado = { nome, cep, numero,complemento,bairro,cidade,estado, email, telefone };
-
+    
     try {
-        const respo = await fetch(`/funcionario/cpf/${cpf}`, {
+        const respo = await fetch(`/funcionario/nome/${nome}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(funcionarioAtualizado)
