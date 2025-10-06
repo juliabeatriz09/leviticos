@@ -85,7 +85,12 @@ async function listarfuncionario() {
 
 async function atualizarfuncionario() {
     const nome = document.getElementById('func-nome').value;
-    const cpf = document.getElementById('func-cpf').value;
+    const cep= document.getElementById('func-cep').value;
+    const numero= document.getElementById('func-numero').value;
+    const complemento= document.getElementById('func-complemento').value;
+    const bairro= document.getElementById('func-bairro').value;
+    const cidade= document.getElementById('func-cidade').value;
+    const estado = document.getElementById('func-estado').value;
     const email = document.getElementById('func-email').value;
     const telefone = document.getElementById('func-telefone').value;
 
@@ -94,7 +99,7 @@ async function atualizarfuncionario() {
         return;
     }
 
-    const funcionarioAtualizado = { nome, cpf, email, telefone };
+    const funcionarioAtualizado = { nome, cep, numero,complemento,bairro,cidade,estado, email, telefone };
 
     try {
         const respo = await fetch(`/funcionario/cpf/${cpf}`, {
