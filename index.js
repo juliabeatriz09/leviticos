@@ -261,13 +261,13 @@ app.get('/funcionario', (req, res) => {
 });
 
 // PUT: Atualizar funcionario por CPF
-app.put('/funcionario/cpf/:cpf', (req, res) => {
-    const { cpf } = req.params;
-    const { nome, data_de_nascimento, rg, genero, estado_civil, email, email_institucional, telefone, telefone_alternativo, cep, logradouro, numero, complemento, bairro, cidade, estado, data_admissao, cargo, carga_horaria, contrato } = req.body;
+app.put('/funcionario/nome/:nome', (req, res) => {
+    const { nome } = req.params;
+    const { cep, numero,complemento,bairro,cidade,estado, email, telefone } = req.body;
 
-    const query = `UPDATE funcionario SET nome = ?, data_de_nascimento = ?, rg = ?, genero = ?, estado_civil = ?, email = ?, email_institucional = ?, telefone = ?, telefone_alternativo = ?, cep = ?, logradouro = ?, numero = ?, complemento = ?, bairro = ?, cidade = ?, estado = ?, data_admissao = ?, cargo = ?, carga_horaria = ?, contrato = ? WHERE cpf = ?`;
+    const query = `UPDATE funcionario SET nome = ?, cep = ?, numero = ?,complemento = ?,bairro = ?,cidade = ?,estado = ?, email = ?, telefone = ?`;
 
-    db.run(query, [nome, data_de_nascimento, rg, genero, estado_civil, email, email_institucional, telefone, telefone_alternativo, cep, logradouro, numero, complemento, bairro, cidade, estado, data_admissao, cargo, carga_horaria, contrato, cpf], function (err) {
+    db.run(query, [nome, cep, numero,complemento,bairro,cidade,estado, email, telefone], function (err) {
         if (err) {
             console.error('Erro no UPDATE funcionario:', err.message);
             return res.status(500).json({ error: 'Erro ao atualizar funcionário.' });
