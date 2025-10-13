@@ -675,12 +675,14 @@
 
  /* Lógica de funcionamento das abas */
  #tab1:checked ~ .tab-contents #content1,
- #tab2:checked ~ .tab-contents #content2 {
-     display: block;
+ #tab2:checked ~ .tab-contents #content2,
+ #tab3:checked ~ .tab-contents #content3 {
+         display: block;
  }
 
  #tab1:checked ~ .tab-labels label[for="tab1"],
- #tab2:checked ~ .tab-labels label[for="tab2"] {
+ #tab2:checked ~ .tab-labels label[for="tab2"],
+ #tab3:checked ~ .tab-labels label[for="tab3"] {
      background-color: var(--primary);
      color: white;
      border-color: var(--primary);

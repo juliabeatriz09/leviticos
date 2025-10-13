@@ -105,11 +105,13 @@
             <!-- Controles das abas -->
             <input type="radio" name="tabs" id="tab1" class="tab-control" checked>
             <input type="radio" name="tabs" id="tab2" class="tab-control">
+            <input type="radio" name="tabs" id="tab3" class="tab-control">
 
             <!-- Rótulos das abas -->
             <div class="tab-labels">
                 <label for="tab1" class="tab-label">Cadastro de Aluno</label>
                 <label for="tab2" class="tab-label">Cadastro de Funcionário</label>
+                <label for="tab3" class="tab-label">Cadastro de Turma</label>
             </div>
 
             <!-- Conteúdo das abas -->
@@ -551,7 +553,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="cortina">
+                 <!-- <div class="cortina">
     <table>
         <thead>
             <tr>
@@ -561,14 +563,137 @@
                 <th>Telefone </th>
             </tr>
         </thead>
-        <tbody id="tabela-funcionario">
+        <tbody id="tabela-funcionario"> -->
             <!-- Linhas serão preenchidas pelo JavaScript -->
-        </tbody>
+        <!-- </tbody>
     </table>
-   </div>
+    
+   </div> -->
+    
+    <!-- ===== ABA 3: FORMULÁRIO DE TURMA (NOVO) ===== -->
+                <div id="content3" class="tab-content">
+                    <form id="form-turma">
+                        <!-- Seção: Informações Básicas da Turma -->
+                        <div class="form-section">
+                            <h3>Informações da Turma</h3>
+                            
+                            <!-- Nome e Código da Turma -->
+                            <div class="form-row">
+                                <div class="form-group">
+                                  
+                                  <label class="required" for="turma-nome">Nome da Turma</label>
+                                    <input type="text" id="turma-nome" name="nome_turma" placeholder="Ex: 1º Ano A" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="required" for="turma-codigo">Código da Turma</label>
+                                    <input type="text" id="turma-codigo" name="codigo_turma" placeholder="Ex: TUR2025-001" required>
+                                </div>
+                            </div>
+                            
+                            <!-- Ano/Série e Turno -->
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="required" for="turma-ano">Ano/Série</label>
+                                    <select id="turma-ano" name="ano" required>
+                                        <option value="">Selecione</option>
+                                        <option value="9">9º Ano</option>
+                                        <option value="1">1º Ano</option>
+                                        <option value="2">2º Ano</option>
+                                        <option value="3">3º Ano</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="required" for="turma-turno">Turno</label>
+                                    <select id="turma-turno" name="turno" required>
+                                        <option value="">Selecione</option>
+                                        <option value="matutino">Matutino</option>
+                                        <option value="vespertino">Vespertino</option>
+                                        <option value="noturno">Noturno</option>
+                                        <option value="integral">Integral</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Curso e Ano Letivo -->
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="required" for="turma-curso">Curso</label>
+                                    <select id="turma-curso" name="curso" required>
+                                        <option value="">Selecione</option>
+                                        <option value="ensino-fundamental">Ensino Fundamental</option>
+                                        <option value="ensino-medio">Ensino Médio</option>
+                                        <option value="tecnico-administracao">Técnico em Administração</option>
+                                        <option value="tecnico-turismo">Técnico em Turismo</option>
+                                        <option value="tecnico-desenvolvimento">Técnico em Desenvolvimento de Sistemas</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="required" for="turma-ano-letivo">Ano Letivo</label>
+                                    <input type="number" id="turma-ano-letivo" name="ano_letivo" min="2020" max="2030" value="2025" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Seção: Capacidade e Horários -->
+                        <div class="form-section">
+                            <h3>Capacidade e Horários</h3>
+                            
+                            <!-- Capacidade (número de alunos) e Sala -->
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="required" for="turma-capacidade">Capacidade (Nº de Alunos)</label>
+                                    <input type="number" id="turma-capacidade" name="capacidade" min="1" max="50" placeholder="Ex: 30" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="required" for="turma-sala">Sala/Local</label>
+                                    <input type="text" id="turma-sala" name="sala" placeholder="Ex: Sala 101" required>
+                                </div>
+                            </div>
+
+                            <!-- Horário de Início e Término das aulas -->
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="required" for="turma-horario-inicio">Horário de Início</label>
+                                    <input type="time" id="turma-horario-inicio" name="horario_inicio" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="required" for="turma-horario-fim">Horário de Término</label>
+                                    <input type="time" id="turma-horario-fim" name="horario_fim" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Seção: Coordenação e Observações -->
+                        <div class="form-section">
+                            <h3>Coordenação e Observações</h3>
+                            
+                            <!-- Coordenador Responsável -->
+                            <div class="form-group">
+                                <label class="required" for="turma-coordenador">Coordenador(a) Responsável</label>
+                                <input type="text" id="turma-coordenador" name="coordenador" placeholder="Nome do coordenador" required>
+                            </div>
+
+                            <!-- Campo de texto para observações adicionais -->
+                            <div class="form-group">
+                                <label for="turma-observacoes">Observações</label>
+                                <textarea id="turma-observacoes" name="observacoes" placeholder="Informações adicionais sobre a turma..."></textarea>
+                            </div>
+                        </div>
+                        
+                        <!-- Botões de ação -->
+                        <div class="btn-container">
+                            <button type="button" class="btn btn-secondary">Voltar</button>
+                            <button type="button" class="btn btn-danger">Cancelar</button>
+                            <button type="submit" class="btn btn-submit">Cadastrar Turma</button>
+                        </div>
+                    </form>
+                </div>
             </div>
+            
         </div>
+        
     </div>
+
   
     </main>
     <!-- Rodapé da página -->
