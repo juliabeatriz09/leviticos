@@ -149,6 +149,23 @@ db.serialize(() => {
         if (err) console.error('Erro ao criar tabela frequencia:', err.message);
         else console.log('Tabela frequencia criada com sucesso.');
     });
+
+      // Tabela turma
+      db.run(`
+        CREATE TABLE IF NOT EXISTS turma (
+            codigo INTEGER PRIMARY KEY AUTOINCREMENT,
+            nome_turma TEXT NOT NULL,
+            curso TEXT NOT NULL,
+            turno INTEGER NOT NULL,
+            ano DATE NOT NULL,
+            capacidade TEXT NOT NULL,
+            coordenador TEXT,
+            sala TEXT
+        )
+    `, (err) => {
+        if (err) console.error('Erro ao criar tabela turma:', err.message);
+        else console.log('Tabela turma criada com sucesso.');
+    });
 });
 
 // ///////////////////////////// Rotas para aluno /////////////////////////////
@@ -546,3 +563,75 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`);
 });
+
+// ///////////////////////////// Rotas para turma /////////////////////////////
+// POST: Cadastrar turma
+app.post('/turma', (req, res) => {
+    const { nome_turma,codigo,turno,curso,ano,capacidade,sala,coordenador } = req.body;
+
+    if (!nome_turma|| !codigo || curso === undefined || !ano || !coordenador) {
+        return res.status(400).json({ error: 'nome, codigo, curso, ano e coordenador são obrigatórios.' });
+    }
+
+    const query = `INSERT INTO frequencia (nome_turma,codigo,turno,curso,ano,capacidade,sala,coordenador) VALUES (?,?,?,?,?,?,?,?)`;
+    db.run(query, [nome_turma,codigo,turno,curso,ano,capacidade,sala,coordenador], function (err) {
+        if (err) {
+            console.error('Erro no INSERT turma:', err.message);
+            return res.status(500).json({ error: 'Erro ao cadastrar turma.' });
+        }
+        res.status(201).json({ id: this.lastID, message: 'turma cadastrada com sucesso.' });
+    });
+});
+
+// GET: Listar turma (filtro por aluno ou turma)
+app.get('/turma', (req, res) => {
+    const codigo = req.query.turma || '';
+
+    if (codigo) {
+        const query = `SELECT * FROM turma WHERE aluno LIKE ?`;
+        db.all(query, [`%${codigo}%`], (err, rows) => {
+            if (err) {
+                console.error('Erro no SELECT turma:', err.message);
+                return res.status(500).json({ error: 'Erro ao buscar turma.' });
+            }
+            res.json(rows);
+        });
+    } else if (turma) {
+        const query = `SELECT * FROM turma WHERE turma LIKE ?`;
+        db.all(query, [`%${turma}%`], (err, rows) => {
+            if (err) {
+                console.error('Erro no SELECT turma:', err.message);
+                return res.status(500).json({ error: 'Erro ao buscar turma.' });
+            }
+            res.json(rows);
+        });
+    } else {
+        const query = `SELECT * FROM turma`;
+        db.all(query, (err, rows) => {
+            if (err) {
+                console.error('Erro no SELECT turma:', err.message);
+                return res.status(500).json({ error: 'Erro ao buscar turma.' });
+            }
+            res.json(rows);
+        });
+    }
+});
+
+// PUT: Atualizar turma por codigp
+app.put('/turma/:codigo', (req, res) => {
+    const { codigo } = req.params;
+    const { nome_turma,turno,curso,ano,capacidade,sala,coordenador} = req.body;
+
+    const query = `UPDATE turma SET nome_turma = ?,codigo = ?,turno =? ,curso =? ,ano =? ,capacidade =? ,sala =? ,coordenador =?`;
+    db.run(query, [nome_turma,codigo,turno,curso,ano,capacidade,sala,coordenador], function (err) {
+        if (err) {
+            console.error('Erro no UPDATE frequencia:', err.message);
+            return res.status(500).json({ error: 'Erro ao atualizar turma.' });
+        }
+        if (this.changes === 0) {
+            return res.status(404).json({ error: 'turma não encontrada.' });
+        }
+        res.json({ message: 'turma atualizada com sucesso.' });
+    });
+});
+
