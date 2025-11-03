@@ -1,7 +1,7 @@
-async function cadastrarata(event) {
+async function cadastrarturma(event) {
     event.preventDefault();
 
-    const ata = {
+    const turma= {
         aluno: document.getElementById("ataAluno").value,
         cgm: document.getElementById("ataAluno").value,
         dia: document.getElementById("ataData").value,
