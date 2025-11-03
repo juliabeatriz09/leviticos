@@ -353,6 +353,32 @@
                     </form>
                 </div>
 
+                <div class="student-info" id="studentInfo">
+                     <button type="button" onclick="listarAlunos()" class="alinhaBtns">Listar aluno</button>
+
+                <table>
+                <thead>
+                    <tr>
+
+                        <th>Nome</th>
+                        <th>CGM</th>
+                        <th>CPF</th>
+                        <th>Email</th>
+                        <th>Turma</th>
+                        <th>Telefone Responsavel</th>
+
+                    </tr>
+                </thead>
+                <tbody id="tabela-aluno">
+                    <!-- Linhas serão preenchidas pelo JavaScript -->
+                </tbody>
+                </table>
+
+                </div>
+
+
+                
+
                 <!-- Aba 2: Formulário de Funcionário -->
                 <div id="content2" class="tab-content">
                     <form id="form-funcionario">
@@ -671,9 +697,10 @@
 
                     <!-- Botões de ação -->
                     <div class="btn-container">
-                        <button type="button" class="btn btn-secondary" onclick="window.history.back()">Voltar</button>
+                        <button type="button" class="btn btn-secondary" onclick="listarturma()">listar</button>
                         <button type="button" class="btn btn-danger" onclick="limparFormulario()">Cancelar</button>
-                        <button type="submit" class="btn btn-submit">Cadastrar Turma</button>
+                        <button type="submit" class="btn btn-submit"
+                            onclick="cadastrarata(event)">Cadastrar Turma</button>
                     </div>
                 </form>
     </div>
